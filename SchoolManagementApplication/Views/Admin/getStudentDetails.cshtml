@@ -1,0 +1,98 @@
+﻿@model IEnumerable<SchoolManagementApplicationDAL.Model.StudentDetailsModel>
+
+@{
+    ViewData["Title"] = "getStudentDetails";
+    Layout = "~/Views/_Layout.cshtml";
+}
+<table class="table">
+    <tr>
+        <td></td>
+        <td></td>
+        <td>
+           <label for="StudentName">Select Student Name</label>
+        </td>
+        <td>
+            @Html.DropDownList("studentList", @ViewBag.studentList, "-- Select Student Name --", new { @class = "form-control" })
+        
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr></tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+            <button type="submit" class="btn btn-primary btn-block">Search</button>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+
+    </tr>
+</table>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.student_registration_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.student_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.student_roll_number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.student_mobile_number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.student_class)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.student_section_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.student_address)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.student_registration_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.student_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.student_roll_number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.student_mobile_number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.student_class)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.student_section_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.student_address)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
