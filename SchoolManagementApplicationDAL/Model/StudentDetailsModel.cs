@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace SchoolManagementApplicationDAL.Model
 {
+    /*Model: Structure of Data */
     public class StudentDetailsModel
     {
         public int student_registration_Id { get; set; }

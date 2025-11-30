@@ -10,6 +10,7 @@ using SchoolManagementApplicationDAL.Abstract;
 
 namespace SchoolManagementApplicationDAL.Repository
 {
+    /*Repository: Functionality of Data */
     public class StudentDetailsRepo:IStudentDetails
     {
         SqlConnection conObj = new SqlConnection("Server=LAPTOP-K1PVP9J6\\;Database=schoolmanagementdb;Integrated Security=True;");
