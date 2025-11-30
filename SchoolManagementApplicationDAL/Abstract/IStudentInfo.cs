@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace SchoolManagementApplicationDAL.Abstract
 {
-    public interface IStudentDetails
+    public interface IStudentInfo
     {
-        public List<StudentDetailsModel> GetStudentDetails();
-        public List<StudentDetailsForDropdown> GetStudentDetailsForDroDown();
+        public List<StudentInfoADO> fetchStudentInfo();
+        public List<StudentsInfoForDropdownADO> fetchStudentInfoForDropDown();
 
 
     }

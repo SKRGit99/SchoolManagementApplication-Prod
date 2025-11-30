@@ -11,12 +11,12 @@ using SchoolManagementApplicationDAL.Abstract;
 namespace SchoolManagementApplicationDAL.Repository
 {
     /*Repository: Functionality of Data */
-    public class StudentDetailsRepo:IStudentDetails
+    public class StudentInfoRepo: IStudentInfo
     {
         SqlConnection conObj = new SqlConnection("Server=LAPTOP-K1PVP9J6\\;Database=schoolmanagementdb;Integrated Security=True;");
-        public List<StudentDetailsModel> GetStudentDetails()
+        public List<StudentInfoADO> fetchStudentInfo()
         {
-            List<StudentDetailsModel> lstStdDetails = new List<StudentDetailsModel>();
+            List<StudentInfoADO> lstStdDetails = new List<StudentInfoADO>();
 
 
             SqlCommand cmd = new SqlCommand("getStudentDetails", conObj);
@@ -29,7 +29,7 @@ namespace SchoolManagementApplicationDAL.Repository
 
             foreach (DataRow dr in dt.Rows)
             {
-                StudentDetailsModel studentDet = new StudentDetailsModel();
+                StudentInfoADO studentDet = new StudentInfoADO();
                 studentDet.student_registration_Id = Convert.ToInt32(dr["student_registration_Id"]);
                 studentDet.student_name = dr["student_name"].ToString();
                 studentDet.student_roll_number = Convert.ToInt32(dr["student_roll_number"]);
@@ -48,9 +48,9 @@ namespace SchoolManagementApplicationDAL.Repository
 
         }
 
-        public List<StudentDetailsForDropdown> GetStudentDetailsForDroDown()
+        public List<StudentsInfoForDropdownADO> fetchStudentInfoForDropDown()
         {
-            List<StudentDetailsForDropdown> lsdDrpDwn = new List<StudentDetailsForDropdown>();
+            List<StudentsInfoForDropdownADO> lsdDrpDwn = new List<StudentsInfoForDropdownADO>();
             SqlCommand cmd = new SqlCommand("getStudentDetails", conObj);
             cmd.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -61,7 +61,7 @@ namespace SchoolManagementApplicationDAL.Repository
 
             foreach (DataRow dr in dt.Rows)
             {
-                StudentDetailsForDropdown studentDetailsByDropDown = new StudentDetailsForDropdown();
+                StudentsInfoForDropdownADO studentDetailsByDropDown = new StudentsInfoForDropdownADO();
                 studentDetailsByDropDown.student_registration_Id = Convert.ToInt32(dr["student_registration_id"]);
                 studentDetailsByDropDown.student_name = dr["student_name"].ToString();
 

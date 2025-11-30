@@ -11,18 +11,18 @@ namespace SchoolManagementApplicationBAL
 {
     public class StudentDetailsBAL
     {
-       IStudentDetails stdet = new StudentDetailsRepo();
-        public List<StudentDetailsModel> GetStudentDetails()
+        IStudentInfo stdet = new StudentInfoRepo();
+        public List<StudentInfoADO> GetStudentDetails()
         {
-            List<StudentDetailsModel> detStudent = new List<StudentDetailsModel>();
-            detStudent = stdet.GetStudentDetails();
+            List<StudentInfoADO> detStudent = new List<StudentInfoADO>();
+            detStudent = stdet.fetchStudentInfo();
             return detStudent;
         }
 
-        public List<StudentDetailsForDropdown> GetStudentDetailsForDropdown()
+        public List<StudentsInfoForDropdownADO> GetStudentDetailsForDropdown()
         {
-            List<StudentDetailsForDropdown> detStudentDrpDwn = new List<StudentDetailsForDropdown>();
-            detStudentDrpDwn = stdet.GetStudentDetailsForDroDown();
+            List<StudentsInfoForDropdownADO> detStudentDrpDwn = new List<StudentsInfoForDropdownADO>();
+            detStudentDrpDwn = stdet.fetchStudentInfoForDropDown();
             return detStudentDrpDwn;
         }
 
