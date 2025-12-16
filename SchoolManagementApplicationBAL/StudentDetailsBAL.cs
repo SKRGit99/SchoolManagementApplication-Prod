@@ -26,5 +26,12 @@ namespace SchoolManagementApplicationBAL
             return detStudentDrpDwn;
         }
 
+        public List<StudentInfoADO> GetStudentDetailsByRegistrationId(int selectedStudentRegId)
+        {
+            List<StudentInfoADO> detStudentbyRegId = new List<StudentInfoADO>();
+            detStudentbyRegId = stdet.fetchStudentInfoByRegistrationId(selectedStudentRegId);
+            return detStudentbyRegId;
+        }
+
     }
 }

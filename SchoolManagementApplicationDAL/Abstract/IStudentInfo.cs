@@ -10,6 +10,8 @@ namespace SchoolManagementApplicationDAL.Abstract
     public interface IStudentInfo
     {
         public List<StudentInfoADO> fetchStudentInfo();
+
+        public List<StudentInfoADO> fetchStudentInfoByRegistrationId(int selectedStudentRegId);
         public List<StudentsInfoForDropdownADO> fetchStudentInfoForDropDown();
 
 

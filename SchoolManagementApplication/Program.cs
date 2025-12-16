@@ -1,7 +1,14 @@
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+// Add services to the container.
+builder.Services.AddControllersWithViews();
+// Source - https://stackoverflow.com/a
+// Posted by Kirk Larkin, modified by community. See post 'Timeline' for change history
+// Retrieved 2025-11-29, License - CC BY-SA 4.0
 
 var app = builder.Build();
 
@@ -25,7 +32,8 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Admin}/{action=fetchStudentDetails}/{id?}")
+    pattern: "{controller=Admin}/{action=GetStudentDetails}/{id?}")
+    //pattern: "{controller=Admin}/{action=GetStudentDetailsByRegistrationId}/{id?}")
     .WithStaticAssets();
 
 app.Run();
