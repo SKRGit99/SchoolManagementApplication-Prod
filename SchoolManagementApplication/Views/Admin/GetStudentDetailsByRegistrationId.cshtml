@@ -37,15 +37,14 @@
 <table class="table table-striped table-bordered table-hover align-middle text-center" style="margin-left:50px; margin-top:20px;margin-right:50px; width:fit-content" id="selectedStudentDetailsTable">
     <thead>
         <tr>
-            <th>student_registration_Id</th>
+            <th>Registration_Id</th>
             <th>student_name</th>
             <th>roll_number</th>
-            <th>mobile_number</th>
-            <th>student_class_details</th>
-            <th>student_section_details</th>
+            <th>class_details</th>
+            <th>section_details</th>
             <th>student_address</th>
-            <th>guardian_name</th>
-        </tr>
+            <th>mobile_number</th>
+          </tr>
     </thead>
     <tbody></tbody>
 </table>
@@ -73,7 +72,7 @@
                        if (response.length > 0) {
                            debugger;
                                 $.each(response, function (i, item) {
-                                    tbody.append('<tr><td>' + item.student_registration_Id + '</td><td>' + item.student_name + '</td><td>' + item.roll_number + '</td><td>' + item.mobile_number + '</td><td>' + item.student_class + '</td><td>' + item.student_section_Id + '</td><td>' + item.student_address + '</td><td>' + item.guardian_name + '</td></tr>');
+                                    tbody.append('<tr><td>' + item.registration_Id + '</td><td>' + item.student_name + '</td><td>' + item.roll_number + '</td><td>' + item.student_class + '</td><td>' + item.section + '</td><td>' + item.address + '</td><td>' + item.mobile_number + '</td></tr>');
                                 });
                             } else {
                                 tbody.append('<tr><td colspan="3">No Student found</td></tr>');

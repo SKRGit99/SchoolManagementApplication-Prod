@@ -28,7 +28,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.student_registration_Id)
+                @Html.DisplayNameFor(model => model.registration_Id)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.student_name)
@@ -37,28 +37,25 @@
                 @Html.DisplayNameFor(model => model.roll_number)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.mobile_number)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.student_class)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.student_section_Id)
+                @Html.DisplayNameFor(model => model.section)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.student_address)
+                @Html.DisplayNameFor(model => model.address)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.guardian_name)
+                @Html.DisplayNameFor(model => model.mobile_number)
             </th>
-            <th>Operation Performed</th>
+            <th>Edit | Details | Delete </th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.student_registration_Id)
+                @Html.DisplayFor(modelItem => item.registration_Id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.student_name)
@@ -67,19 +64,16 @@
                 @Html.DisplayFor(modelItem => item.roll_number)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.mobile_number)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.student_class)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.student_section_Id)
+                @Html.DisplayFor(modelItem => item.section)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.student_address)
+                @Html.DisplayFor(modelItem => item.address)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.guardian_name)
+                @Html.DisplayFor(modelItem => item.mobile_number)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

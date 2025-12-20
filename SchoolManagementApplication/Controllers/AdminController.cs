@@ -14,16 +14,7 @@ namespace SchoolManagementApplication.Controllers
         {
             StudentDetailsBAL studentDetailsBusiness = new StudentDetailsBAL();
             List<StudentDetailsADO> studentDetails = new List<StudentDetailsADO>();
-
-
             studentDetails = studentDetailsBusiness.GetStudentDetails();
-
-            /*This code is for grtting dropdown details*/
-            List<StudentsDetailsForDropdownADO> student = new List<StudentsDetailsForDropdownADO>();
-            student = studentDetailsBusiness.GetStudentDetailsForDropdown();
-            ViewBag.studentList = new SelectList(student, "student_registration_Id", "student_name");
-            /*code for grtting dropdown details ends*/
-
             return View(studentDetails);
         }
 
@@ -36,7 +27,7 @@ namespace SchoolManagementApplication.Controllers
             /*This code is for getting dropdown details*/
             List<StudentsDetailsForDropdownADO> studentDetailsForDrpDwn = new List<StudentsDetailsForDropdownADO>();
             studentDetailsForDrpDwn = studentDetailsBusiness.GetStudentDetailsForDropdown();
-            ViewBag.studentList = new SelectList(studentDetailsForDrpDwn, "student_registration_Id", "student_name");
+            ViewBag.studentList = new SelectList(studentDetailsForDrpDwn, "registration_Id", "student_name");
             /*code for grtting dropdown details ends*/
 
             return View();
@@ -61,15 +52,7 @@ namespace SchoolManagementApplication.Controllers
             EducatorDetailsBAL educatorDetailsBusiness = new EducatorDetailsBAL();
             List<EducatorDetailsADO> educatorDetails = new List<EducatorDetailsADO>();
 
-
             educatorDetails = educatorDetailsBusiness.GetEducatorDetails();
-
-            /*This code is for grtting dropdown details*/
-            List<EducatorDetailsForDropdownADO> educatorDetDrpDwn = new List<EducatorDetailsForDropdownADO>();
-            educatorDetDrpDwn = educatorDetailsBusiness.GetEducatorDetailsForDropdown();
-            ViewBag.studentList = new SelectList("educator", "educator_registration_Id", "educator_name");
-            /*code for grtting dropdown details ends*/
-
             return View(educatorDetails);
         }
 

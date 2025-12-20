@@ -18,7 +18,7 @@ namespace SchoolManagementApplicationDAL.Repository
         {
             List<StudentDetailsADO> lstStdDetails = new List<StudentDetailsADO>();
 
-            SqlCommand cmd = new SqlCommand("fetchStudentDetails", conObj);
+            SqlCommand cmd = new SqlCommand("getStudentDetails", conObj);
             cmd.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
@@ -29,14 +29,13 @@ namespace SchoolManagementApplicationDAL.Repository
             foreach (DataRow dr in dt.Rows)
             {
                 StudentDetailsADO studentDet = new StudentDetailsADO();
-                studentDet.student_registration_Id = Convert.ToInt32(dr["student_registration_Id"]);
-                studentDet.student_name = dr["student_name"].ToString();
-                studentDet.roll_number = Convert.ToInt32(dr["student_roll_number"]);
-                studentDet.mobile_number = dr["student_mobile_number"].ToString();
-                studentDet.student_class = Convert.ToInt32(dr["student_class"]);
-                studentDet.student_section_Id = Convert.ToInt32(dr["student_section_Id"]);
-                studentDet.student_address = dr["student_address"].ToString();
-                studentDet.guardian_name = dr["student_Guardian_name"].ToString();
+                studentDet.registration_Id = Convert.ToInt32(dr["RegistrationId"]);
+                studentDet.student_name = dr["studentName"].ToString();
+                studentDet.roll_number = Convert.ToInt32(dr["rollNumber"]);
+                studentDet.student_class = Convert.ToInt32(dr["studentClass"]);
+                studentDet.section = Convert.ToChar(dr["studentSection"]);
+                studentDet.address = dr["studentAddress"].ToString();
+                studentDet.mobile_number = dr["studentMobileNumber"].ToString();
                 lstStdDetails.Add(studentDet);
 
 
@@ -50,7 +49,7 @@ namespace SchoolManagementApplicationDAL.Repository
         public List<StudentsDetailsForDropdownADO> getStudentDetailsForDropDown()
         {
             List<StudentsDetailsForDropdownADO> lstStdDrpDwn = new List<StudentsDetailsForDropdownADO>();
-            SqlCommand cmd = new SqlCommand("fetchStudentDetails", conObj);
+            SqlCommand cmd = new SqlCommand("getStudentDetails", conObj);
             cmd.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
@@ -61,8 +60,8 @@ namespace SchoolManagementApplicationDAL.Repository
             foreach (DataRow dr in dt.Rows)
             {
                 StudentsDetailsForDropdownADO studentDetailsByDropDown = new StudentsDetailsForDropdownADO();
-                studentDetailsByDropDown.student_registration_Id = Convert.ToInt32(dr["student_registration_id"]);
-                studentDetailsByDropDown.student_name = dr["student_name"].ToString();
+                studentDetailsByDropDown.registration_Id = Convert.ToInt32(dr["RegistrationId"]);
+                studentDetailsByDropDown.student_name = dr["studentName"].ToString();
 
 
                 lstStdDrpDwn.Add(studentDetailsByDropDown);
@@ -74,7 +73,7 @@ namespace SchoolManagementApplicationDAL.Repository
         {
             List<StudentDetailsADO> lstStdDetailsbyRegId = new List<StudentDetailsADO>();
 
-            SqlCommand cmd = new SqlCommand("fetchStudentDetailsByRegId", conObj);
+            SqlCommand cmd = new SqlCommand("getStudentDetailsByRegId", conObj);
             cmd.CommandType = CommandType.StoredProcedure;
 
             SqlParameter param1 = new SqlParameter
@@ -97,16 +96,15 @@ namespace SchoolManagementApplicationDAL.Repository
 
             foreach (DataRow dr in dt.Rows)
             {
-                StudentDetailsADO studentDet = new StudentDetailsADO();
-                studentDet.student_registration_Id = Convert.ToInt32(dr["student_registration_Id"]);
-                studentDet.student_name = dr["student_name"].ToString();
-                studentDet.roll_number = Convert.ToInt32(dr["student_roll_number"]);
-                studentDet.mobile_number = dr["student_mobile_number"].ToString();
-                studentDet.student_class = Convert.ToInt32(dr["student_class"]);
-                studentDet.student_section_Id = Convert.ToInt32(dr["student_section_Id"]);
-                studentDet.student_address = dr["student_address"].ToString();
-                studentDet.guardian_name = dr["student_Guardian_name"].ToString();
-                lstStdDetailsbyRegId.Add(studentDet);
+                StudentDetailsADO studentDetByRegId = new StudentDetailsADO();
+                studentDetByRegId.registration_Id = Convert.ToInt32(dr["RegistrationId"]);
+                studentDetByRegId.student_name = dr["studentName"].ToString();
+                studentDetByRegId.roll_number = Convert.ToInt32(dr["rollNumber"]);
+                studentDetByRegId.student_class = Convert.ToInt32(dr["studentClass"]);
+                studentDetByRegId.section = Convert.ToChar(dr["studentSection"]);
+                studentDetByRegId.address = dr["studentAddress"].ToString();
+                studentDetByRegId.mobile_number = dr["studentMobileNumber"].ToString();
+                lstStdDetailsbyRegId.Add(studentDetByRegId);
 
 
             }

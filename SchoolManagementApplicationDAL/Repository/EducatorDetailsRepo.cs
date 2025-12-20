@@ -28,13 +28,15 @@ namespace SchoolManagementApplicationDAL.Repository
             foreach (DataRow dr in dt.Rows)
             {
                 EducatorDetailsADO eduDet = new EducatorDetailsADO();
-                eduDet.educator_registration_Id = Convert.ToInt32(dr["educator_registration_Id"]);
-                eduDet.educator_name = dr["educator_name"].ToString();
-                eduDet.class_assigned = Convert.ToInt32(dr["educator_class_assigned"]);
-                eduDet.section_assigned = Convert.ToInt32(dr["educator_section_assigned"]);
-                eduDet.subject_assigned = (dr["educator_subject_assigned"]).ToString();
-                eduDet.mobile_number = dr["educator_mobile_number"].ToString();
-                eduDet.address = dr["educator_address"].ToString();
+                eduDet.educator_registration_Id = Convert.ToInt32(dr["RegistrationId"]);
+                eduDet.educator_name = dr["educatorName"].ToString();
+                eduDet.educator_department = dr["educatorDepartment"].ToString();
+                eduDet.class_assigned = dr["classAssigned"].ToString();
+                eduDet.section_assigned = Convert.ToChar(dr["sectionAssigned"]);
+                eduDet.subject_assigned = (dr["subjectAssigned"]).ToString();
+                eduDet.address = dr["educatorAddress"].ToString();
+                eduDet.mobile_number = dr["mobileNumber"].ToString();
+                
 
                 lstEduDetails.Add(eduDet);
 
@@ -60,8 +62,8 @@ namespace SchoolManagementApplicationDAL.Repository
             foreach (DataRow dr in dt.Rows)
             {
                 EducatorDetailsForDropdownADO educatorDetailsByDropDown = new EducatorDetailsForDropdownADO();
-                educatorDetailsByDropDown.educator_registration_Id = Convert.ToInt32(dr["educator_registration_Id"]);
-                educatorDetailsByDropDown.educator_name = dr["educator_name"].ToString();
+                educatorDetailsByDropDown.educator_registration_Id = Convert.ToInt32(dr["RegistrationId"]);
+                educatorDetailsByDropDown.educator_name = dr["educatorName"].ToString();
 
 
                 lstEduDrpDwn.Add(educatorDetailsByDropDown);
@@ -97,13 +99,14 @@ namespace SchoolManagementApplicationDAL.Repository
             foreach (DataRow dr in dt.Rows)
             {
                 EducatorDetailsADO EduDetails = new EducatorDetailsADO();
-                EduDetails.educator_registration_Id = Convert.ToInt32(dr["educator_registration_Id"]);
-                EduDetails.educator_name = dr["educator_name"].ToString();
-                EduDetails.class_assigned = Convert.ToInt32(dr["educator_class_assigned"]);
-                EduDetails.section_assigned = Convert.ToInt32(dr["educator_section_assigned"]);
-                EduDetails.subject_assigned = dr["educator_subject_assigned"].ToString();
-                EduDetails.mobile_number = dr["educator_mobile_number"].ToString();
-                EduDetails.address = dr["educator_address"].ToString();
+                EduDetails.educator_registration_Id = Convert.ToInt32(dr["RegistrationId"]);
+                EduDetails.educator_name = dr["educatorName"].ToString();
+                EduDetails.educator_department = dr["educatorDepartment"].ToString();
+                EduDetails.class_assigned = dr["classAssigned"].ToString();
+                EduDetails.section_assigned = Convert.ToChar(dr["sectionAssigned"]);
+                EduDetails.subject_assigned = (dr["subjectAssigned"]).ToString();
+                EduDetails.address = dr["educatorAddress"].ToString();
+                EduDetails.mobile_number = dr["mobileNumber"].ToString();
                 lstEduDetailsbyRegId.Add(EduDetails);
 
 

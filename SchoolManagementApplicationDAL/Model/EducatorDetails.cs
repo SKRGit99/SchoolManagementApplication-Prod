@@ -12,8 +12,9 @@ namespace SchoolManagementApplicationDAL.Model
         [Key]
         public int educator_registration_Id { get; set; }
         public string educator_name { get; set; }
-        public int class_assigned { get; set; }
-        public int section_assigned { get; set; }
+        public string educator_department {  get; set; }
+        public string class_assigned { get; set; }
+        public char section_assigned { get; set; }
         public string subject_assigned { get; set; }
         public string mobile_number { get; set; }
         public string address { get; set; }

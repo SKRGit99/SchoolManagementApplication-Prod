@@ -34,6 +34,9 @@
                 @Html.DisplayNameFor(model => model.educator_name)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.educator_department)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.class_assigned)
             </th>
             <th>
@@ -49,7 +52,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.address)
             </th>
-            <th>Operation Performed</th>
+            <th>Edit | Details | Delete </th>
         </tr>
     </thead>
     <tbody>
@@ -60,6 +63,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.educator_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.educator_department)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.class_assigned)
