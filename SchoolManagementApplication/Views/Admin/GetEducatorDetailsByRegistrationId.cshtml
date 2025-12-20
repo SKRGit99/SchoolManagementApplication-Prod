@@ -73,7 +73,7 @@
                        if (response.length > 0) {
                            debugger;
                                 $.each(response, function (i, item) {
-                                    tbody.append('<tr><td>' + item.educator_registration_Id + '</td><td>' + item.educator_name + '</td><td>' + item.educator_class_assigned + '</td><td>' + item.educator_section_assigned + '</td><td>' + item.educator_subject_assigned + '</td><td>' + item.educator_mobile_number + '</td><td>' + item.educator_address + '</td></tr>');
+                                    tbody.append('<tr><td>' + item.educator_registration_Id + '</td><td>' + item.educator_name + '</td><td>' + item.class_assigned + '</td><td>' + item.section_assigned + '</td><td>' + item.subject_assigned + '</td><td>' + item.mobile_number + '</td><td>' + item.address + '</td></tr>');
                                 });
                             } else {
                                 tbody.append('<tr><td colspan="3">No Educator found</td></tr>');

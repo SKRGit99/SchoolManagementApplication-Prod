@@ -30,11 +30,11 @@ namespace SchoolManagementApplicationDAL.Repository
                 EducatorDetailsADO eduDet = new EducatorDetailsADO();
                 eduDet.educator_registration_Id = Convert.ToInt32(dr["educator_registration_Id"]);
                 eduDet.educator_name = dr["educator_name"].ToString();
-                eduDet.educator_class_assigned = Convert.ToInt32(dr["educator_class_assigned"]);
-                eduDet.educator_section_assigned = Convert.ToInt32(dr["educator_section_assigned"]);
-                eduDet.educator_subject_assigned = (dr["educator_subject_assigned"]).ToString();
-                eduDet.educator_mobile_number = dr["educator_mobile_number"].ToString();
-                eduDet.educator_address = dr["educator_address"].ToString();
+                eduDet.class_assigned = Convert.ToInt32(dr["educator_class_assigned"]);
+                eduDet.section_assigned = Convert.ToInt32(dr["educator_section_assigned"]);
+                eduDet.subject_assigned = (dr["educator_subject_assigned"]).ToString();
+                eduDet.mobile_number = dr["educator_mobile_number"].ToString();
+                eduDet.address = dr["educator_address"].ToString();
 
                 lstEduDetails.Add(eduDet);
 
@@ -99,11 +99,11 @@ namespace SchoolManagementApplicationDAL.Repository
                 EducatorDetailsADO EduDetails = new EducatorDetailsADO();
                 EduDetails.educator_registration_Id = Convert.ToInt32(dr["educator_registration_Id"]);
                 EduDetails.educator_name = dr["educator_name"].ToString();
-                EduDetails.educator_class_assigned = Convert.ToInt32(dr["educator_class_assigned"]);
-                EduDetails.educator_section_assigned = Convert.ToInt32(dr["educator_section_assigned"]);
-                EduDetails.educator_subject_assigned = dr["educator_subject_assigned"].ToString();
-                EduDetails.educator_mobile_number = dr["educator_mobile_number"].ToString();
-                EduDetails.educator_address = dr["educator_address"].ToString();
+                EduDetails.class_assigned = Convert.ToInt32(dr["educator_class_assigned"]);
+                EduDetails.section_assigned = Convert.ToInt32(dr["educator_section_assigned"]);
+                EduDetails.subject_assigned = dr["educator_subject_assigned"].ToString();
+                EduDetails.mobile_number = dr["educator_mobile_number"].ToString();
+                EduDetails.address = dr["educator_address"].ToString();
                 lstEduDetailsbyRegId.Add(EduDetails);
 
 

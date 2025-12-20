@@ -12,11 +12,11 @@ namespace SchoolManagementApplicationDAL.Model
         [Key]
         public int educator_registration_Id { get; set; }
         public string educator_name { get; set; }
-        public int educator_class_assigned { get; set; }
-        public int educator_section_assigned { get; set; }
-        public string educator_subject_assigned { get; set; }
-        public string educator_mobile_number { get; set; }
-        public string educator_address { get; set; }
+        public int class_assigned { get; set; }
+        public int section_assigned { get; set; }
+        public string subject_assigned { get; set; }
+        public string mobile_number { get; set; }
+        public string address { get; set; }
     }
 
     public class EducatorDetailsForDropdownADO
