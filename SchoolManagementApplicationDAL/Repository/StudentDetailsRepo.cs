@@ -11,12 +11,12 @@ using SchoolManagementApplicationDAL.Abstract;
 namespace SchoolManagementApplicationDAL.Repository
 {
     /*Repository: Functionality of Data */
-    public class StudentInfoRepo : IStudentInfo
+    public class StudentDetailsRepo : IStudentDetails
     {
         SqlConnection conObj = new SqlConnection("Server=LAPTOP-K1PVP9J6\\;Database=SchoolManagementAppDevDb;Integrated Security=True;");
-        public List<StudentInfoADO> fetchStudentInfo()
+        public List<StudentDetailsADO> getAllStudentDetails()
         {
-            List<StudentInfoADO> lstStdDetails = new List<StudentInfoADO>();
+            List<StudentDetailsADO> lstStdDetails = new List<StudentDetailsADO>();
 
             SqlCommand cmd = new SqlCommand("fetchStudentDetails", conObj);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -28,7 +28,7 @@ namespace SchoolManagementApplicationDAL.Repository
 
             foreach (DataRow dr in dt.Rows)
             {
-                StudentInfoADO studentDet = new StudentInfoADO();
+                StudentDetailsADO studentDet = new StudentDetailsADO();
                 studentDet.student_registration_Id = Convert.ToInt32(dr["student_registration_Id"]);
                 studentDet.student_name = dr["student_name"].ToString();
                 studentDet.roll_number = Convert.ToInt32(dr["student_roll_number"]);
@@ -47,9 +47,9 @@ namespace SchoolManagementApplicationDAL.Repository
 
         }
 
-        public List<StudentsInfoForDropdownADO> fetchStudentInfoForDropDown()
+        public List<StudentsDetailsForDropdownADO> getStudentDetailsForDropDown()
         {
-            List<StudentsInfoForDropdownADO> lsdDrpDwn = new List<StudentsInfoForDropdownADO>();
+            List<StudentsDetailsForDropdownADO> lstStdDrpDwn = new List<StudentsDetailsForDropdownADO>();
             SqlCommand cmd = new SqlCommand("fetchStudentDetails", conObj);
             cmd.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -60,19 +60,19 @@ namespace SchoolManagementApplicationDAL.Repository
 
             foreach (DataRow dr in dt.Rows)
             {
-                StudentsInfoForDropdownADO studentDetailsByDropDown = new StudentsInfoForDropdownADO();
+                StudentsDetailsForDropdownADO studentDetailsByDropDown = new StudentsDetailsForDropdownADO();
                 studentDetailsByDropDown.student_registration_Id = Convert.ToInt32(dr["student_registration_id"]);
                 studentDetailsByDropDown.student_name = dr["student_name"].ToString();
 
 
-                lsdDrpDwn.Add(studentDetailsByDropDown);
+                lstStdDrpDwn.Add(studentDetailsByDropDown);
             }
-            return lsdDrpDwn;
+            return lstStdDrpDwn;
         }
 
-        public List<StudentInfoADO> fetchStudentInfoByRegistrationId(int registrationId)
+        public List<StudentDetailsADO> getStudentDetailsByRegistrationId(int registrationId)
         {
-            List<StudentInfoADO> lstStdDetailsbyRegId = new List<StudentInfoADO>();
+            List<StudentDetailsADO> lstStdDetailsbyRegId = new List<StudentDetailsADO>();
 
             SqlCommand cmd = new SqlCommand("fetchStudentDetailsByRegId", conObj);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -97,7 +97,7 @@ namespace SchoolManagementApplicationDAL.Repository
 
             foreach (DataRow dr in dt.Rows)
             {
-                StudentInfoADO studentDet = new StudentInfoADO();
+                StudentDetailsADO studentDet = new StudentDetailsADO();
                 studentDet.student_registration_Id = Convert.ToInt32(dr["student_registration_Id"]);
                 studentDet.student_name = dr["student_name"].ToString();
                 studentDet.roll_number = Convert.ToInt32(dr["student_roll_number"]);

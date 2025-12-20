@@ -11,25 +11,25 @@ namespace SchoolManagementApplicationBAL
 {
     public class StudentDetailsBAL
     {
-        IStudentInfo stdet = new StudentInfoRepo();
-        public List<StudentInfoADO> GetStudentDetails()
+        IStudentDetails stdet = new StudentDetailsRepo();
+        public List<StudentDetailsADO> GetStudentDetails()
         {
-            List<StudentInfoADO> detStudent = new List<StudentInfoADO>();
-            detStudent = stdet.fetchStudentInfo();
+            List<StudentDetailsADO> detStudent = new List<StudentDetailsADO>();
+            detStudent = stdet.getAllStudentDetails();
             return detStudent;
         }
 
-        public List<StudentsInfoForDropdownADO> GetStudentDetailsForDropdown()
+        public List<StudentsDetailsForDropdownADO> GetStudentDetailsForDropdown()
         {
-            List<StudentsInfoForDropdownADO> detStudentDrpDwn = new List<StudentsInfoForDropdownADO>();
-            detStudentDrpDwn = stdet.fetchStudentInfoForDropDown();
+            List<StudentsDetailsForDropdownADO> detStudentDrpDwn = new List<StudentsDetailsForDropdownADO>();
+            detStudentDrpDwn = stdet.getStudentDetailsForDropDown();
             return detStudentDrpDwn;
         }
 
-        public List<StudentInfoADO> GetStudentDetailsByRegistrationId(int selectedStudentRegId)
+        public List<StudentDetailsADO> GetStudentDetailsByRegistrationId(int selectedStudentRegId)
         {
-            List<StudentInfoADO> detStudentbyRegId = new List<StudentInfoADO>();
-            detStudentbyRegId = stdet.fetchStudentInfoByRegistrationId(selectedStudentRegId);
+            List<StudentDetailsADO> detStudentbyRegId = new List<StudentDetailsADO>();
+            detStudentbyRegId = stdet.getStudentDetailsByRegistrationId(selectedStudentRegId);
             return detStudentbyRegId;
         }
 

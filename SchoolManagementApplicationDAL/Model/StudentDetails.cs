@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace SchoolManagementApplicationDAL.Model
 {
     /*Model: Structure of Data */
-    public class StudentInfoADO
+    public class StudentDetailsADO
     {
         public int student_registration_Id { get; set; }
         public string? student_name { get; set; }
@@ -23,7 +23,7 @@ namespace SchoolManagementApplicationDAL.Model
 
     }
 
-    public class StudentsInfoForDropdownADO
+    public class StudentsDetailsForDropdownADO
     {
         public int student_registration_Id { get; set; }
         public string? student_name { get; set; }

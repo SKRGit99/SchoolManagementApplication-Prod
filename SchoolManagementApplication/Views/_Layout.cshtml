@@ -18,60 +18,47 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">ABC International School</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow">
+            <div class="container">
+                <a class="navbar-brand" href="/Home/Index" asp-area="" asp-controller="Home" asp-action="Index">ABC International School</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between" id="navbarNavDarkDropdown">
-                    <ul class="navbar-nav">
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="/Home/Index" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" id="myDropdown" aria-expanded="false">
                                 Admin
                             </a>
-                       
+
                             <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="Admin"
-                                       asp-action="GetStudentDetails">
-                                        Action
-                                    </a>
-                                </li>
-                      
                                 <li>
-                                    <a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="Admin"
-                                       asp-action="fetchEducatorDetailsUsingList">
-                                        Educator Details
-                                    </a>
+                                    <a class="dropdown-item" href="/Admin/GetStudentDetails" asp-area="" asp-controller="Admin" asp-action="GetStudentDetails">All Student Details</a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" asp-area="" href="/Admin/GetStudentDetailsByRegistrationId" asp-controller="Admin" asp-action="GetStudentDetailsByRegistrationId">Individual Student Details</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="Admin"
-                                       asp-action="GetStudentDetails">
-                                        All Student Details
-                                    </a>
+                                    <a class="dropdown-item" asp-area="" href="/Admin/GetEducatorDetails" asp-controller="Admin" asp-action="GetEducatorDetails">All Educator Details</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="Admin"
-                                       asp-action="GetStudentDetailsByRegistrationId">
-                                        Individual Student Details
-                                    </a>
+                                    <a class="dropdown-item" asp-area="" href="/Admin/GetEducatorDetailsByRegistrationId" asp-controller="Admin" asp-action="GetEducatorDetailsByRegistrationId">Individual Educator Details</a>
                                 </li>
                             </ul>
                         </li>
-                    </ul>
+                      </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
 
-
+            </nav>
     </header>
     <div>
         <main role="main" class="pb-3">

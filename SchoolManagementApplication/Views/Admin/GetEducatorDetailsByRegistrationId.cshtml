@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SchoolManagementApplicationDAL.Model.StudentDetailsADO>
+﻿@model IEnumerable<SchoolManagementApplicationDAL.Model.EducatorDetailsADO>
 
 @{
     ViewData["Title"] = "ABC International School";
@@ -11,18 +11,18 @@
                 Welcome to ABC International School
             </h1>
             <p class="lead">
-                Select an Student to see the Student details.
+                Select an Educator to see the Student details.
             </p>
             <table class="table">
                 <tr>
-                    <td>Select Student Name</td>
+                    <td>Select Educator Name</td>
                     <td>
-                        @Html.DropDownList("studentList", @ViewBag.studentList, "-- Select Student Name --", new { @class = "form-control" })
+                        @Html.DropDownList("EducatorList", @ViewBag.EducatorList, "-- Select Educator Name --", new { @class = "form-control" })
                     </td>
                 </tr>
             </table>
             <div>
-                <button type="submit" class="btn btn-primary" data-bs-toggle="dropdown" style="width:100%" id="btnSubmitRegId">Search</button>
+                <button type="submit" class="btn btn-primary" data-bs-toggle="dropdown" style="width:100%" id="btnSubmitEduRegId">Search</button>
             </div>
         </div>
 
@@ -34,17 +34,17 @@
 
 
 
-<table class="table table-striped table-bordered table-hover align-middle text-center" style="margin-left:50px; margin-top:20px;margin-right:50px; width:fit-content" id="selectedStudentDetailsTable">
+<table class="table table-striped table-bordered table-hover align-middle text-center" style="margin-left:50px; margin-top:20px;margin-right:50px; width:fit-content" id="selectedEducatorDetailsTable">
     <thead>
         <tr>
-            <th>student_registration_Id</th>
-            <th>student_name</th>
-            <th>roll_number</th>
-            <th>mobile_number</th>
-            <th>student_class_details</th>
-            <th>student_section_details</th>
-            <th>student_address</th>
-            <th>guardian_name</th>
+            <th>Educator_registration_Id</th>
+            <th>Educator_name</th>
+            <th>Educator_Class</th>
+            <th>Educator_Section</th>
+            <th>Educator_Subject</th>
+            <th>educator_mobile_number</th>
+            <th>educator_address</th>
+        
         </tr>
     </thead>
     <tbody></tbody>
@@ -54,9 +54,9 @@
 
 <script>
     $(document).ready(function () {
-        $("#btnSubmitRegId").click(function () {
-            var selectedValue = $("#studentList").val();
-              var tbody = $('#selectedStudentDetailsTable tbody');
+        $("#btnSubmitEduRegId").click(function () {
+            var selectedValue = $("#EducatorList").val();
+              var tbody = $('#selectedEducatorDetailsTable tbody');
                     tbody.empty();
             // Validate selection
             if (!selectedValue) {
@@ -66,19 +66,19 @@
 
             // Send via AJAX
             $.ajax({
-                url: '@Url.Action("GetStudentDetailsByRegistrationId", "Admin")', // Controller action
+                url: '@Url.Action("GetEducatorDetailsByRegistrationId", "Admin")', // Controller action
                 type: 'POST',
                 data: { value: selectedValue },
                 success: function (response) {
                        if (response.length > 0) {
                            debugger;
                                 $.each(response, function (i, item) {
-                                    tbody.append('<tr><td>' + item.student_registration_Id + '</td><td>' + item.student_name + '</td><td>' + item.roll_number + '</td><td>' + item.mobile_number + '</td><td>' + item.student_class + '</td><td>' + item.student_section_Id + '</td><td>' + item.student_address + '</td><td>' + item.guardian_name + '</td></tr>');
+                                    tbody.append('<tr><td>' + item.educator_registration_Id + '</td><td>' + item.educator_name + '</td><td>' + item.educator_class_assigned + '</td><td>' + item.educator_section_assigned + '</td><td>' + item.educator_subject_assigned + '</td><td>' + item.educator_mobile_number + '</td><td>' + item.educator_address + '</td></tr>');
                                 });
                             } else {
-                                tbody.append('<tr><td colspan="3">No Student found</td></tr>');
+                                tbody.append('<tr><td colspan="3">No Educator found</td></tr>');
                             }
-         
+
                 },
                 error: function (xhr, status, error) {
                     console.error("Error: " + error);
@@ -86,7 +86,7 @@
                 }
             });
 
-          
+
         });
     });
 

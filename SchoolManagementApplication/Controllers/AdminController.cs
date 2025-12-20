@@ -9,17 +9,17 @@ namespace SchoolManagementApplication.Controllers
 {
     public class AdminController : Controller
     {
-        [HttpGet]
+       
         public IActionResult GetStudentDetails()
         {
             StudentDetailsBAL studentDetailsBusiness = new StudentDetailsBAL();
-            List<StudentInfoADO> studentDetails = new List<StudentInfoADO>();
+            List<StudentDetailsADO> studentDetails = new List<StudentDetailsADO>();
 
 
             studentDetails = studentDetailsBusiness.GetStudentDetails();
 
             /*This code is for grtting dropdown details*/
-            List<StudentsInfoForDropdownADO> student = new List<StudentsInfoForDropdownADO>();
+            List<StudentsDetailsForDropdownADO> student = new List<StudentsDetailsForDropdownADO>();
             student = studentDetailsBusiness.GetStudentDetailsForDropdown();
             ViewBag.studentList = new SelectList(student, "student_registration_Id", "student_name");
             /*code for grtting dropdown details ends*/
@@ -34,7 +34,7 @@ namespace SchoolManagementApplication.Controllers
             StudentDetailsBAL studentDetailsBusiness = new StudentDetailsBAL();
 
             /*This code is for getting dropdown details*/
-            List<StudentsInfoForDropdownADO> studentDetailsForDrpDwn = new List<StudentsInfoForDropdownADO>();
+            List<StudentsDetailsForDropdownADO> studentDetailsForDrpDwn = new List<StudentsDetailsForDropdownADO>();
             studentDetailsForDrpDwn = studentDetailsBusiness.GetStudentDetailsForDropdown();
             ViewBag.studentList = new SelectList(studentDetailsForDrpDwn, "student_registration_Id", "student_name");
             /*code for grtting dropdown details ends*/
@@ -48,7 +48,7 @@ namespace SchoolManagementApplication.Controllers
         public JsonResult GetStudentDetailsByRegistrationId(string value)
         {
             StudentDetailsBAL studentDetailsBusiness = new StudentDetailsBAL();
-            List<StudentInfoADO> studentDetails = new List<StudentInfoADO>();
+            List<StudentDetailsADO> studentDetails = new List<StudentDetailsADO>();
 
 
             studentDetails = studentDetailsBusiness.GetStudentDetailsByRegistrationId(Convert.ToInt32(value));
@@ -56,6 +56,48 @@ namespace SchoolManagementApplication.Controllers
             return Json(studentDetails);
         }
 
+        public IActionResult GetEducatorDetails()
+        {
+            EducatorDetailsBAL educatorDetailsBusiness = new EducatorDetailsBAL();
+            List<EducatorDetailsADO> educatorDetails = new List<EducatorDetailsADO>();
+
+
+            educatorDetails = educatorDetailsBusiness.GetEducatorDetails();
+
+            /*This code is for grtting dropdown details*/
+            List<EducatorDetailsForDropdownADO> educatorDetDrpDwn = new List<EducatorDetailsForDropdownADO>();
+            educatorDetDrpDwn = educatorDetailsBusiness.GetEducatorDetailsForDropdown();
+            ViewBag.studentList = new SelectList("educator", "educator_registration_Id", "educator_name");
+            /*code for grtting dropdown details ends*/
+
+            return View(educatorDetails);
+        }
+
+        [HttpGet]
+        public IActionResult GetEducatorDetailsByRegistrationId()
+        {
+            EducatorDetailsBAL eduDetailsBAL = new EducatorDetailsBAL();
+
+            /*This code is for grtting dropdown details*/
+            List<EducatorDetailsForDropdownADO> educatorDetDrpDwn = new List<EducatorDetailsForDropdownADO>();
+            educatorDetDrpDwn = eduDetailsBAL.GetEducatorDetailsForDropdown();
+            ViewBag.EducatorList = new SelectList(educatorDetDrpDwn, "educator_registration_Id", "educator_name");
+            /*code for grtting dropdown details ends*/
+
+            return View();
+        }
+
+        [HttpPost]
+        public JsonResult GetEducatorDetailsByRegistrationId(string value)
+        {
+            EducatorDetailsBAL eduDetailsDrpDwnBAL = new EducatorDetailsBAL();
+            List<EducatorDetailsADO> educatDetails = new List<EducatorDetailsADO>();
+
+
+            educatDetails = eduDetailsDrpDwnBAL.GetEducatorDetailsByRegistrationId(Convert.ToInt32(value));
+
+            return Json(educatDetails);
+        }
 
     }
 }
